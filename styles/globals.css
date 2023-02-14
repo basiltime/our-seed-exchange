@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-toggle {
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .nav ul {
+        display: none;
+        width: fit-content;
+        margin-right: 0;
+        margin-left: auto;
+    }
+    .nav-toggle {
+        display: block;
+        margin-left: auto;
+    }
+}

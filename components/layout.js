@@ -7,16 +7,18 @@ import Header from './header.js';
 
 export default function Layout({children}) {
   return (
-    <div className={styles.container}>
-      <Head>
+    <>
+    <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Our Seed Exhange is a Garden Seed Swapping Community"
         />
-      </Head>
-      <Header />
-      <main>{children}</main>
+    </Head>
+    <Header />
+    <div className="container mx-auto p-5">
+        <main>{children}</main>
     </div>
+    </>
   );
 }
