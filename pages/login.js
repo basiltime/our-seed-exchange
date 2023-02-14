@@ -2,14 +2,14 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 
 
-export default function Home() {
+export default function Login() {
   return (
     <>
     <Head>
-      <title>Our Seed Exhange</title>
+      <title>Log In</title>
     </Head>
 
-    <h1>Welcome to Our Seed Exchange</h1>
+    <h1>Log In</h1>
     </>
 
   )
