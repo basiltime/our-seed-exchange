@@ -16,4 +16,7 @@
         display: block;
         margin-left: auto;
     }
+    .show-menu {
+        display: block !important;
+    }
 }
