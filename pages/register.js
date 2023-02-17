@@ -47,28 +47,39 @@ export default function Register() {
     <Head>
       <title>Create an Account</title>
     </Head>
-    {/* We pass the event to the handleSubmit() function on submit. */}
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="first">First Name</label>
-      <input type="text" id="first" name="first" required />
+    <div className="container">
+      <div className="w-full md:w-9/12 mx-auto mt-5 bg-neutral-50 p-10 md:p-20 rounded">
+        <h1 className="text-2xl mb-5">Create an Account</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-5">
+            <label htmlFor="first" className="w-full">First Name</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="text" id="first" name="first" required />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="last" className="w-full">Last Name</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="text" id="last" name="last" required />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="email" className="w-full">Email</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="email" id="email" name="email" required />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="zone" className="w-full">Growing Zone</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="text" id="zone" name="zone" required />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="pw" className="w-full">Password</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="text" id="pw" name="pw" required />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="pw2" className="w-full">Confirm Password</label>
+            <input className="form-input rounded w-full border-slate-300 focus:border-lime-600 focus:ring-0" type="text" id="pw2" name="pw2" required />
+          </div>
+          <button className="rounded bg-lime-600 text-white py-2 px-4 my-2" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
 
-      <label htmlFor="last">Last Name</label>
-      <input type="text" id="last" name="last" required />
-
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label htmlFor="zone">Growing Zone</label>
-      <input type="text" id="zone" name="zone" required />
-
-      <label htmlFor="pw">Password</label>
-      <input type="text" id="pw" name="pw" required />
-
-      <label htmlFor="pw2">Confirm Password</label>
-      <input type="text" id="pw2" name="pw2" required />
-      
-      <button type="submit">Submit</button>
-    </form>
     </>
   )
 }
