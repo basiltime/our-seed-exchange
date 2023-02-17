@@ -15,7 +15,7 @@ model User {
   email String  @unique
   first  String 
   last  String
-  zone  String?
+  zone  String
   posts   Post[]
   pw  String @default("none")
 }

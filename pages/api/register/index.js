@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 export default function handler(req, res) {
     const body = req.body
     // Validate any empty fields
-    if (!body.first || !body.last || !body.email || !body.zone) {
+    if (!body.first || !body.last || !body.email || !body.pw) {
         // Sends a HTTP bad request error code
         return res.status(400).json({ data: 'Please fill out all fields' })
     }

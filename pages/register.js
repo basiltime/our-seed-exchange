@@ -15,6 +15,9 @@ export default function Register() {
       pw: event.target.pw.value
     }
 
+    const validate_pw = pw_match(event.target.pw.value, event.target.pw2.value);
+    if (validate_pw == false) { return false }
+
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data)
 
@@ -39,7 +42,18 @@ export default function Register() {
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json()
-    alert(`Is this your full name: ${result.data}`)
+    alert(`Thanks for creating an account, ${result.first}!`) // Change how this works, send success bool from api.
+
+    function pw_match(pw, pw2) {
+      if (pw === pw2) {
+        return true
+      } else {
+        alert ('Make sure the passwords match')
+        return false
+      }
+    }
+
+    
     
   }
   return (
