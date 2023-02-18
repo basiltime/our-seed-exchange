@@ -34,11 +34,12 @@ export default function Register() {
     const response = await fetch(endpoint, options)
     const result = await response.json()
     if (result.success === 'true') {
-      console.log(result);
-      alert(`You're logged in!`)
+      window.location.href = '/';
     } else {
       alert('Not logged in')
     }
+
+    
     
   }
   return (
