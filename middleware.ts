@@ -2,19 +2,20 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { verify } from "./services/jwt_sign_verify";
 
-// This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
+  // Authorize the User
 
-  // if (new RegExp(/^.*(fonts|_next|vk.com|favicon).*$/).test(request.url)) {
-  //   return NextResponse.next()
-  // }
-  // Need to authorize the user. Get the token from the cookie and check with the jwt method for 
-  // seeing if it's expiredor whatever. 
-
+  // Check cookies for token
   const secret = process.env.SUPER_SECRET;
-  const jwt = request.cookies.get('auth')?.value 
-  if (jwt === undefined) return NextResponse.next();
+  const jwt = request.cookies.get('auth')?.value
 
+  // If none, redirect to login
+  if (jwt === undefined) {
+    request.nextUrl.pathname = '/login'
+    return NextResponse.redirect(request.nextUrl)
+  }
+
+  // Verify the token
   try {
     await verify(jwt, secret);
     return NextResponse.next();
@@ -24,6 +25,7 @@ export async function middleware(request: NextRequest) {
   }
 }
 
+// Paths to use middlware on
 export const config = {
   matcher: '/trades/:path*',
 }
